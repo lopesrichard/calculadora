@@ -1,4 +1,6 @@
-/home/richard/Documents/Calculadora/src/main/java/app/src/Main.java
-/home/richard/Documents/Calculadora/src/main/java/app/src/util/SymbolChecker.java
-/home/richard/Documents/Calculadora/src/main/java/app/src/exceptions/ConstantNotFoundException.java
-/home/richard/Documents/Calculadora/src/main/java/app/src/constants/Symbol.java
+/home/richard/Documents/Calculadora/src/main/java/Calculator.java
+/home/richard/Documents/Calculadora/src/main/java/Main.java
+/home/richard/Documents/Calculadora/src/main/java/exceptions/ConstantNotFoundException.java
+/home/richard/Documents/Calculadora/src/main/java/util/SymbolChecker.java
+/home/richard/Documents/Calculadora/src/main/java/math/CustomMath.java
+/home/richard/Documents/Calculadora/src/main/java/constants/Symbol.java
