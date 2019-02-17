@@ -292,6 +292,11 @@ public class Main extends javax.swing.JFrame {
         MainPanel.add(subtraction);
 
         equals.setText("=");
+        equals.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calculateTotal(evt);
+            }
+        });
         MainPanel.add(equals);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -353,6 +358,11 @@ public class Main extends javax.swing.JFrame {
     private void clearScreen(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearScreen
         Screen.setText("");
     }//GEN-LAST:event_clearScreen
+
+    private void calculateTotal(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateTotal
+        Calculator calc = new Calculator(Screen.getText());
+        Screen.setText(calc.calculate());
+    }//GEN-LAST:event_calculateTotal
 
     private void insert(char insert) {
         Screen.setText(Screen.getText() + insert);

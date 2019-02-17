@@ -40,7 +40,8 @@ public enum Symbol {
     SQUARE('²'),
     OPENPAR('('),
     CLOSEPAR(')'),
-    COMMA(',');
+    COMMA(','),
+    NAN('ø');
     
     private final char ch;
     
@@ -50,6 +51,10 @@ public enum Symbol {
     
     public char getValue() {
         return ch;
+    }
+    
+    public String toString() {
+        return String.valueOf(ch);
     }
     
     public static Symbol fromStr(String text) throws ConstantNotFoundException {
