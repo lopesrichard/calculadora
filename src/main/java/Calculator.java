@@ -101,10 +101,10 @@ public class Calculator {
         try{
              switch(Symbol.fromChar(m.group(4).charAt(0))) {
                 case SUM:
-                    value = CustomMath.sum(Double.parseDouble(m.group(2)), Double.parseDouble(m.group(5)));
+                    value = Double.parseDouble(m.group(2)) + Double.parseDouble(m.group(5));
                     break;
                 case SUB:
-                    value = CustomMath.sub(Double.parseDouble(m.group(2)), Double.parseDouble(m.group(5)));
+                    value = Double.parseDouble(m.group(2)) - Double.parseDouble(m.group(5));
                     break;
                 case MULT:
                     value = Double.parseDouble(m.group(2)) * Double.parseDouble(m.group(5));
