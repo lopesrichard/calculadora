@@ -41,7 +41,7 @@ public enum Symbol {
     OPENPAR('('),
     CLOSEPAR(')'),
     COMMA(','),
-    NAN('ø');
+    NAN('Ø');
     
     private final char ch;
     

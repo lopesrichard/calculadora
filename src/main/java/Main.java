@@ -377,9 +377,17 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_clearScreen
 
     private void calculateTotal(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateTotal
-        Calculator calc = new Calculator(Screen.getText());
-        ResultScreen.setText(ResultScreen.getText() + Screen.getText() + " = " + calc.calculate() + "\n");
-        clearScreen(evt);
+        try {
+            Calculator calc = new Calculator(Screen.getText());
+            ResultScreen.setText(ResultScreen.getText() + Screen.getText() + " = " + calc.calculate() + "\n");
+        } catch(ArithmeticException e) {
+            ResultScreen.setText(ResultScreen.getText() + Screen.getText() + " = " + Symbol.NAN.getValue() + " (" + e.getMessage() + ")" + "\n");
+        } catch(Exception e) {
+            ResultScreen.setText(ResultScreen.getText() + Screen.getText() + " = " + Symbol.NAN.getValue() + " (Erro desconhecido)" + "\n");
+        } finally {
+            clearScreen(evt);
+        }
+       
     }//GEN-LAST:event_calculateTotal
 
     private void insert(char insert) {

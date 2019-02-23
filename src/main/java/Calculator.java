@@ -109,13 +109,19 @@ public class Calculator {
     }
     
     private String calculateRoot(String expression) {
-        Matcher m = Pattern.compile("(\\(*" + Symbol.ROOT.getValue() + "(\\d+(\\.?\\d+)?)\\)*)").matcher(expression);
+        Matcher m = Pattern.compile("(\\(*" + Symbol.ROOT.getValue() + "([+-]?\\d+(\\.?\\d+)?)\\)*)").matcher(expression);
         
         if (!m.find()) {
             return expression;
         }
+        
+        double number = Double.parseDouble(m.group(2));
+        
+        if (number < 0) {
+            throw new ArithmeticException("This application doesn't support complex numbers");
+        }
     
-        Double value = Math.sqrt(Double.parseDouble(m.group(2)));
+        Double value = Math.sqrt(number);
         return calculateSquare(expression.replace(m.group(1), String.valueOf(value)));
     }
     
@@ -153,7 +159,11 @@ public class Calculator {
                     value = Double.parseDouble(m.group(2)) * Double.parseDouble(m.group(5));
                     break;
                 case DIV:
-                    value = Double.parseDouble(m.group(2)) / Double.parseDouble(m.group(5));
+                    double divisor = Double.parseDouble(m.group(5));
+                    if (divisor == 0.0) {
+                        throw new ArithmeticException("It's not possible divide by zero");
+                    }
+                    value = Double.parseDouble(m.group(2)) / divisor;
                     break;
             }
         } catch (ConstantNotFoundException e) {
