@@ -38,14 +38,47 @@ public class Calculator {
     private String expression;
     
     public Calculator(String expression) {
-        this.expression = '(' + expression.replace(",", ".") + ')';
+        this.expression = inicialTreatment(expression);
+        
+    }
+    
+    public final String inicialTreatment(String expression) {
+        expression = putLastParenthesis(expression);
+        expression = substituteComma(expression);
+        expression = inferMultiplications(expression);
+        
+        return expression;
+    }
+    
+    public String putLastParenthesis(String expression) {
+        return '(' + expression + ')';
+    }
+    
+    public String substituteComma(String expression) {
+        Matcher m = Pattern.compile("(([\\d,]+)(,\\d+))").matcher(expression);
+        while (m.find()) {
+            expression = expression.replace(m.group(1), m.group(2).replace(",", "") + m.group(3).replace(",", "."));
+        }
+        expression = expression.replace(",", ".");
+        return expression;
+    }
+    
+    public String inferMultiplications(String expression) {
+        Matcher m = Pattern.compile("(\\)\\()").matcher(expression);
+        while (m.find()) {
+            expression = expression.replace(m.group(1), ")" + Symbol.MULT.getValue() + "(");
+        }
+        System.out.println(expression);
+        return expression;
     }
     
     public String calculate() {
+        System.out.println(expression);
        Matcher m = Pattern.compile("(\\([^()]+\\))").matcher(expression);
        if(!m.find()) {
            return expression;
        }
+       System.out.println(expression);
 
        String result = m.group(1);
        expression = expression.replace(result, calculateExpression(result));
