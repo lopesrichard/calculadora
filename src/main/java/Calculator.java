@@ -73,12 +73,10 @@ public class Calculator {
     }
     
     public String calculate() {
-        System.out.println(expression);
        Matcher m = Pattern.compile("(\\([^()]+\\))").matcher(expression);
        if(!m.find()) {
            return expression;
        }
-       System.out.println(expression);
 
        String result = m.group(1);
        expression = expression.replace(result, calculateExpression(result));

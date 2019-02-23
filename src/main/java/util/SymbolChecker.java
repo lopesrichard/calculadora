@@ -74,6 +74,10 @@ public class SymbolChecker {
                         last != Symbol.DIV  && last != Symbol.COMMA);
             }
             
+            if (INPUT == Symbol.SQUARE && last == Symbol.CLOSEPAR) {
+                return true;
+            }
+            
             return false;
         
         }catch (ConstantNotFoundException e) {            
