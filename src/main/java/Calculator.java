@@ -68,7 +68,6 @@ public class Calculator {
         while (m.find()) {
             expression = expression.replace(m.group(1), ")" + Symbol.MULT.getValue() + "(");
         }
-        System.out.println(expression);
         return expression;
     }
     
@@ -85,22 +84,16 @@ public class Calculator {
     
     private String calculateExpression(String expression) {
         String operations;
-        System.out.println(expression);
         expression = calculateSquare(expression);
-        System.out.println(expression);
         expression = calculateRoot(expression);
-        System.out.println(expression);
         expression = calculatePercentage(expression);
-        System.out.println(expression);
-        
+                
         operations = Symbol.MULT.toString() + Symbol.DIV.toString();
         expression = calculateArithmetic(expression, operations);
-        System.out.println(expression);
-        
+                
         operations = Symbol.SUM.toString() + Symbol.SUB.toString();
         expression = calculateArithmetic(expression, operations);
-        System.out.println(expression);
-        
+                
         return expression.replace("(", "").replace(")", "");
     }
     
