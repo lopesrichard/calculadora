@@ -85,15 +85,21 @@ public class Calculator {
     
     private String calculateExpression(String expression) {
         String operations;
-        
+        System.out.println(expression);
         expression = calculateSquare(expression);
+        System.out.println(expression);
+        expression = calculateRoot(expression);
+        System.out.println(expression);
         expression = calculatePercentage(expression);
+        System.out.println(expression);
         
         operations = Symbol.MULT.toString() + Symbol.DIV.toString();
         expression = calculateArithmetic(expression, operations);
+        System.out.println(expression);
         
         operations = Symbol.SUM.toString() + Symbol.SUB.toString();
         expression = calculateArithmetic(expression, operations);
+        System.out.println(expression);
         
         return expression.replace("(", "").replace(")", "");
     }
@@ -106,6 +112,17 @@ public class Calculator {
         }
     
         Double value = Math.pow(Double.parseDouble(m.group(2)), 2);
+        return calculateSquare(expression.replace(m.group(1), String.valueOf(value)));
+    }
+    
+    private String calculateRoot(String expression) {
+        Matcher m = Pattern.compile("(\\(*" + Symbol.ROOT.getValue() + "(\\d+(\\.?\\d+)?)\\)*)").matcher(expression);
+        
+        if (!m.find()) {
+            return expression;
+        }
+    
+        Double value = Math.sqrt(Double.parseDouble(m.group(2)));
         return calculateSquare(expression.replace(m.group(1), String.valueOf(value)));
     }
     
@@ -124,7 +141,7 @@ public class Calculator {
     }
     
     private String calculateArithmetic(String expression, String operations) {
-        Matcher m = Pattern.compile("(\\(*([+-]?\\d+(\\.?\\d+)?)(["+operations+"])([+-]?\\d+(\\.?\\d+)?)\\)*)").matcher(expression);
+        Matcher m = Pattern.compile("(\\(*(-?\\d+(\\.?\\d+)?)(["+operations+"])(-?\\d+(\\.?\\d+)?)\\)*)").matcher(expression);
         
         if (!m.find()) {
             return expression;

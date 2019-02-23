@@ -74,11 +74,7 @@ public class SymbolChecker {
                         last != Symbol.DIV  && last != Symbol.COMMA);
             }
             
-            if (INPUT == Symbol.SQUARE && last == Symbol.CLOSEPAR) {
-                return true;
-            }
-            
-            return false;
+            return INPUT == Symbol.SQUARE && last == Symbol.CLOSEPAR;
         
         }catch (ConstantNotFoundException e) {            
             return e.getCode().matches("\\d");
