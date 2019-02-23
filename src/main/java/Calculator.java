@@ -54,7 +54,9 @@ public class Calculator {
     
     private String calculateExpression(String expression) {
         String operations;
-        expression = calculatePostFix(expression);
+        
+        expression = calculateSquare(expression);
+        expression = calculatePercentage(expression);
         
         operations = Symbol.MULT.toString() + Symbol.DIV.toString();
         expression = calculateArithmetic(expression, operations);
@@ -65,29 +67,29 @@ public class Calculator {
         return expression.replace("(", "").replace(")", "");
     }
     
-    private String calculatePostFix(String expression) {
-        String operations = Symbol.SQUARE.toString() + Symbol.PERC.toString();
-        Matcher m = Pattern.compile("(\\(*(\\d+(\\.?\\d+)?)(["+operations+"])\\)*)").matcher(expression);
+    private String calculateSquare(String expression) {
+        Matcher m = Pattern.compile("(\\(*(\\d+(\\.?\\d+)?)²\\)*)").matcher(expression);
         
         if (!m.find()) {
             return expression;
         }
     
-        Double value = 0.0;
-        try{
-            switch(Symbol.fromChar(m.group(4).charAt(0))) {
-                case SQUARE:
-                    value = Math.pow(Double.parseDouble(m.group(2)), 2);
-                    break;
-                case PERC:
-                    value = Double.parseDouble(m.group(2)) / 100;
-                    break;
-            } 
-        } catch(ConstantNotFoundException e) {
-            return Symbol.NAN.toString();
+        Double value = Math.pow(Double.parseDouble(m.group(2)), 2);
+        return calculateSquare(expression.replace(m.group(1), String.valueOf(value)));
+    }
+    
+    private String calculatePercentage(String expression) {
+        Matcher m = Pattern.compile("(\\(*((\\d+(\\.?\\d+)?)([+-]))?((\\d+(\\.?\\d+)?)%)\\)*)").matcher(expression);
+        
+        if (!m.find()) {
+            return expression;
         }
-            
-        return calculatePostFix(expression.replace(m.group(1), String.valueOf(value)));
+        
+        Double value = m.group(3) != null && (m.group(5).matches("[+-]"))
+                     ? Double.parseDouble(m.group(3)) * (Double.parseDouble(m.group(7)) / 100)
+                     : Double.parseDouble(m.group(7)) / 100;
+        
+        return calculatePercentage(expression.replace(m.group(6), String.valueOf(value)));
     }
     
     private String calculateArithmetic(String expression, String operations) {

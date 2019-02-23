@@ -50,8 +50,12 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         ScreenPanel = new javax.swing.JPanel();
         Screen = new javax.swing.JTextField();
+        ResultPanel = new javax.swing.JScrollPane();
+        ResultScreen = new javax.swing.JTextArea();
         MainPanel = new javax.swing.JPanel();
         one = new javax.swing.JButton();
         two = new javax.swing.JButton();
@@ -77,6 +81,10 @@ public class Main extends javax.swing.JFrame {
         subtraction = new javax.swing.JButton();
         equals = new javax.swing.JButton();
 
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         ScreenPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -85,20 +93,29 @@ public class Main extends javax.swing.JFrame {
         Screen.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         Screen.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        ResultScreen.setEditable(false);
+        ResultScreen.setColumns(20);
+        ResultScreen.setRows(5);
+        ResultPanel.setViewportView(ResultScreen);
+
         javax.swing.GroupLayout ScreenPanelLayout = new javax.swing.GroupLayout(ScreenPanel);
         ScreenPanel.setLayout(ScreenPanelLayout);
         ScreenPanelLayout.setHorizontalGroup(
             ScreenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ScreenPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Screen)
+                .addGroup(ScreenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ResultPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(Screen, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE))
                 .addContainerGap())
         );
         ScreenPanelLayout.setVerticalGroup(
             ScreenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ScreenPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Screen, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                .addComponent(ResultPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Screen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -361,7 +378,8 @@ public class Main extends javax.swing.JFrame {
 
     private void calculateTotal(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateTotal
         Calculator calc = new Calculator(Screen.getText());
-        Screen.setText(calc.calculate());
+        ResultScreen.setText(ResultScreen.getText() + Screen.getText() + " = " + calc.calculate() + "\n");
+        clearScreen(evt);
     }//GEN-LAST:event_calculateTotal
 
     private void insert(char insert) {
@@ -420,6 +438,8 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MainPanel;
+    private javax.swing.JScrollPane ResultPanel;
+    private javax.swing.JTextArea ResultScreen;
     private javax.swing.JTextField Screen;
     private javax.swing.JPanel ScreenPanel;
     private javax.swing.JButton backspace;
@@ -431,6 +451,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton equals;
     private javax.swing.JButton five;
     private javax.swing.JButton four;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton multiplication;
     private javax.swing.JButton nine;
     private javax.swing.JButton one;
