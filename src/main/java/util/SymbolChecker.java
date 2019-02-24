@@ -63,7 +63,13 @@ public class SymbolChecker {
             
             last = Symbol.fromChar(STR.charAt(STR.length() - 1));
             
-            if (INPUT == Symbol.SUM || INPUT == Symbol.SUB) {
+            if (INPUT == Symbol.SUM) {
+                return last == Symbol.ROOT ||
+                      (last != Symbol.SUM   && last != Symbol.SUB && 
+                       last != Symbol.COMMA && last != Symbol.MULT);
+            }
+            
+            if (INPUT == Symbol.SUB) {
                 return last == Symbol.ROOT ||
                       (last != Symbol.SUM && last != Symbol.SUB && last != Symbol.COMMA);
             }
