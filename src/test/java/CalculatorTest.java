@@ -106,6 +106,42 @@ public class CalculatorTest {
     }
     
     @Test
+    public void testShouldCalculateSquareOfPositiveNumbers() {
+        calc = new Calculator("9²");
+        assertEquals(calc.calculate(), "81.0");
+    }
+    
+    @Test
+    public void testShouldCalculateSquareOfNegativeNumbers() {
+        calc = new Calculator("-12²");
+        assertEquals(calc.calculate(), "-144.0");
+    }
+    
+    @Test
+    public void testShouldCalculateSquareOfPositiveNumbersWithParenthesis() {
+        calc = new Calculator("(+12)²");
+        assertEquals(calc.calculate(), "144.0");
+    }
+    
+    @Test
+    public void testShouldCalculateSquareOfNegativeNumbersWithParenthesis() {
+        calc = new Calculator("(-12)²");
+        assertEquals(calc.calculate(), "144.0");
+    }
+    
+    @Test
+    public void testShouldCalculatePercentageOfANumber() {
+        calc = new Calculator("9%");
+        assertEquals(calc.calculate(), "0.09");
+    }
+    
+    @Test
+    public void testShouldCalculateSumOfPercentage() {
+        calc = new Calculator("50+20%");
+        assertEquals(calc.calculate(), "60.0");
+    }
+    
+    @Test
     public void testShouldCalculateCompleteExpression() {
         calc = new Calculator("√(9×((5²+7)÷(38+5%)+3))");
         assertEquals(calc.calculate(), "5.849619228016636");

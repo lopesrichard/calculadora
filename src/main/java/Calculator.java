@@ -72,7 +72,7 @@ public class Calculator {
     }
     
     public String calculate() {
-       Matcher m = Pattern.compile("(\\([^()]+\\))").matcher(expression);
+       Matcher m = Pattern.compile("(\\([^()]+\\)²?)").matcher(expression);
        if(!m.find()) {
            return expression;
        }
@@ -98,12 +98,24 @@ public class Calculator {
     }
     
     private String calculateSquare(String expression) {
-        Matcher m = Pattern.compile("(\\(*(\\d+(\\.?\\d+)?)²\\)*)").matcher(expression);
+        expression = calculateOutSideSquare(expression);
+        Matcher m = Pattern.compile("(\\(*-?((\\d+(?:\\.\\d+)?)²)\\)*)").matcher(expression);
+        
+        if (!m.find()) {
+            return expression;  
+        }
+        
+        Double value = Math.pow(Double.parseDouble(m.group(3)), 2);
+        return calculateSquare(expression.replace(m.group(2), String.valueOf(value)));
+    }
+    
+    private String calculateOutSideSquare(String expression) {
+        Matcher m = Pattern.compile("(\\(([-+]?\\d+(?:\\.\\d+)?)\\)²)").matcher(expression);
         
         if (!m.find()) {
             return expression;
         }
-    
+                
         Double value = Math.pow(Double.parseDouble(m.group(2)), 2);
         return calculateSquare(expression.replace(m.group(1), String.valueOf(value)));
     }
