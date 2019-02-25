@@ -64,20 +64,15 @@ public class SymbolChecker {
             last = Symbol.fromChar(STR.charAt(STR.length() - 1));
             
             if (INPUT == Symbol.SUM) {
-                return last == Symbol.ROOT ||
-                      (last != Symbol.SUM   && last != Symbol.SUB && 
-                       last != Symbol.COMMA && last != Symbol.MULT);
+                return checkSum(last);
             }
             
             if (INPUT == Symbol.SUB) {
-                return last == Symbol.ROOT ||
-                      (last != Symbol.SUM && last != Symbol.SUB && last != Symbol.COMMA);
+                return checkSub(last);
             }
 
             if (INPUT == Symbol.MULT || INPUT == Symbol.DIV) {
-                return (last != Symbol.ROOT && last != Symbol.SUM  &&
-                        last != Symbol.SUB  && last != Symbol.MULT &&
-                        last != Symbol.DIV  && last != Symbol.COMMA);
+                return checkMultDiv(last);
             }
             
             return INPUT == Symbol.SQUARE && last == Symbol.CLOSEPAR;
@@ -85,6 +80,26 @@ public class SymbolChecker {
         }catch (ConstantNotFoundException e) {            
             return e.getCode().matches("\\d");
         }
+    }
+    
+    private boolean checkSum(Symbol last) {
+        if (last != Symbol.ROOT) {
+            return last != Symbol.SUM && last != Symbol.SUB && last != Symbol.COMMA && last != Symbol.MULT;
+        }
+        return true;
+    }
+    
+    private boolean checkSub(Symbol last) {
+        if (last != Symbol.ROOT) {
+          return last != Symbol.SUM && last != Symbol.SUB && last != Symbol.COMMA;
+        }
+        return true;
+    }
+    
+    private boolean checkMultDiv(Symbol last) {
+        return (last != Symbol.ROOT && last != Symbol.SUM  &&
+                last != Symbol.SUB  && last != Symbol.MULT &&
+                last != Symbol.DIV  && last != Symbol.COMMA);
     }
     
     public boolean checkParenthesis() {

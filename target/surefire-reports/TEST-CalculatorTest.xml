@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="CalculatorTest" time="0.059" tests="19" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="CalculatorTest" time="0.058" tests="19" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="gnome"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
@@ -18,7 +18,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64"/>
-    <property name="sun.java.command" value="/home/richard/Documents/Calculadora/target/surefire/surefirebooter6417954935665303213.jar /home/richard/Documents/Calculadora/target/surefire 2019-02-24T00-33-23_149-jvmRun1 surefire3714294769079861681tmp surefire_02069086844672683141tmp"/>
+    <property name="sun.java.command" value="/home/richard/Documents/Calculadora/target/surefire/surefirebooter658618513373194687.jar /home/richard/Documents/Calculadora/target/surefire 2019-02-24T21-36-30_202-jvmRun1 surefire4476777257581097656tmp surefire_03377126846686416105tmp"/>
     <property name="surefire.test.class.path" value="/home/richard/Documents/Calculadora/target/test-classes:/home/richard/Documents/Calculadora/target/classes:/home/richard/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.1/junit-jupiter-api-5.3.1.jar:/home/richard/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/home/richard/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/home/richard/.m2/repository/org/junit/platform/junit-platform-commons/1.3.1/junit-platform-commons-1.3.1.jar:/home/richard/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.3.1/junit-jupiter-params-5.3.1.jar:/home/richard/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.1/junit-jupiter-engine-5.3.1.jar:/home/richard/.m2/repository/org/junit/platform/junit-platform-engine/1.3.1/junit-platform-engine-1.3.1.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/home/richard"/>
@@ -31,7 +31,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/home/richard/Documents/Calculadora/target/surefire/surefirebooter6417954935665303213.jar"/>
+    <property name="surefire.real.class.path" value="/home/richard/Documents/Calculadora/target/surefire/surefirebooter658618513373194687.jar"/>
     <property name="sun.boot.class.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/classes"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="1.8.0_191-8u191-b12-2ubuntu0.18.04.1-b12"/>
@@ -61,20 +61,20 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="testShouldCalculateCompleteExpression" classname="CalculatorTest" time="0.018"/>
+  <testcase name="testShouldCalculateCompleteExpression" classname="CalculatorTest" time="0.016"/>
   <testcase name="testShouldDividePositiveNumbers" classname="CalculatorTest" time="0.001"/>
-  <testcase name="testShouldCalculateRootOfPositiveNumbers" classname="CalculatorTest" time="0.002"/>
+  <testcase name="testShouldCalculateRootOfPositiveNumbers" classname="CalculatorTest" time="0.001"/>
   <testcase name="testShouldDivideNegativeNumbers" classname="CalculatorTest" time="0.002"/>
   <testcase name="testShouldCalculatePercentageOfANumber" classname="CalculatorTest" time="0.001"/>
-  <testcase name="testShouldCalculateSquareOfPositiveNumbersWithParenthesis" classname="CalculatorTest" time="0.002"/>
+  <testcase name="testShouldCalculateSquareOfPositiveNumbersWithParenthesis" classname="CalculatorTest" time="0.001"/>
   <testcase name="testShouldDivideNegativeAndPositiveNumbers" classname="CalculatorTest" time="0.001"/>
   <testcase name="testShouldMultiplyPositiveNumbers" classname="CalculatorTest" time="0.001"/>
   <testcase name="testShouldMultiplyNegativeNumbers" classname="CalculatorTest" time="0.001"/>
   <testcase name="testShouldSumNegativeAndPositiveNumbers" classname="CalculatorTest" time="0.001"/>
   <testcase name="testShouldCalculateSquareOfNegativeNumbersWithParenthesis" classname="CalculatorTest" time="0.002"/>
-  <testcase name="testShouldCalculateSquareOfPositiveNumbers" classname="CalculatorTest" time="0.002"/>
+  <testcase name="testShouldCalculateSquareOfPositiveNumbers" classname="CalculatorTest" time="0.001"/>
   <testcase name="testShouldThrowsArithmeticExceptionWhenDivisionByZero" classname="CalculatorTest" time="0.002"/>
-  <testcase name="testShouldMultiplyNegativeAndPositiveNumbers" classname="CalculatorTest" time="0.001"/>
+  <testcase name="testShouldMultiplyNegativeAndPositiveNumbers" classname="CalculatorTest" time="0"/>
   <testcase name="testShouldCalculateSquareOfNegativeNumbers" classname="CalculatorTest" time="0.001"/>
   <testcase name="testShouldCalculateSumOfPercentage" classname="CalculatorTest" time="0.002"/>
   <testcase name="testShouldSubtractNumbers" classname="CalculatorTest" time="0.001"/>

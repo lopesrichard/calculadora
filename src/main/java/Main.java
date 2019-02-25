@@ -86,6 +86,11 @@ public class Main extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(250, 250));
+        setMinimumSize(new java.awt.Dimension(250, 250));
+        setPreferredSize(new java.awt.Dimension(300, 300));
+        setResizable(false);
+        setSize(new java.awt.Dimension(300, 300));
 
         ScreenPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -106,7 +111,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(ScreenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(ResultPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(Screen, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE))
+                    .addComponent(Screen, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))
                 .addContainerGap())
         );
         ScreenPanelLayout.setVerticalGroup(
